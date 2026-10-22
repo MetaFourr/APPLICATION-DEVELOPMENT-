@@ -1,2 +1,4 @@
 # APPLICATION-DEVELOPMENT-
-TESTING ANISAH NEW RESPIRATORY 
+Testing Najihah new respiratory.
+I am currently a third year bioinformatics student.
+I love coding.
