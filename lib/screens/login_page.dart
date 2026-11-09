@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+// Import main.dart to access MainNavigation
+import '../main.dart';
+// Import signup_page.dart to navigate to your sign up screen
+import 'signup_page.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,6 +18,13 @@ class _LoginScreenState extends State<LoginScreen> {
   
   final _emailController = TextEditingController(text: 'maya@example.com');
   final _passwordController = TextEditingController(text: 'password123');
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -196,7 +207,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 16),
 
-              // Log in Button
+              // Log in Button -> NAVIGATES TO DASHBOARD/MAIN NAVIGATION
               SizedBox(
                 width: double.infinity,
                 height: 50,
@@ -209,7 +220,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     elevation: 0,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    // Navigate to MainNavigation (Dashboard & Newborn Care shell)
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => const MainNavigation()),
+                    );
+                  },
                   child: const Text(
                     'Log in',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
@@ -252,13 +269,19 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 32),
 
-              // Footer
+              // Footer -> NAVIGATES TO SIGN UP PAGE
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text("New to HiMommy!? ", style: TextStyle(color: Colors.grey, fontSize: 13)),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      // Navigate to SignUpScreen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                      );
+                    },
                     child: Text(
                       'Create an account',
                       style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold, fontSize: 13),
