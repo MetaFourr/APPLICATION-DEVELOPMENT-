@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
-// 1. Keep your friend's screen import[cite: 10]
+// 1. Friend's screen import
 import 'screens/newborn_care_screen.dart';
 
-// 2. Import your dashboard screen from your dedicated folder
+// 2. Your dashboard screen import
 import 'dashboard/dashboard_screen.dart';
+
+// 3. Import your login screen
+import 'login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,13 +25,13 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFFBFBFB),
         fontFamily: 'Roboto',
       ),
-      // Set the root screen to MainNavigation shell
-      home: const MainNavigation(),
+      // Set initial route to Login screen
+      home: const LoginScreen(),
     );
   }
 }
 
-// Navigation Shell holding both your work and your friend's work
+// Navigation Shell holding both your work and your friend's work after logging in
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
 
