@@ -6,8 +6,8 @@ import 'screens/newborn_care_screen.dart';
 // 2. Your dashboard screen import
 import 'dashboard/dashboard_screen.dart';
 
-// 3. Import your login screen
-import 'login_screen.dart';
+// 3. Your Login page import (using login_page.dart)
+import 'screens/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +24,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFFFBFBFB),
         fontFamily: 'Roboto',
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF5B7566),
+          primary: const Color(0xFF5B7566),
+        ),
       ),
       // Set initial route to Login screen
       home: const LoginScreen(),
@@ -31,7 +35,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Navigation Shell holding both your work and your friend's work after logging in
+// Navigation Shell holding both your dashboard and your friend's newborn care screen
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
 
@@ -62,15 +66,15 @@ class _MainNavigationState extends State<MainNavigation> {
             _currentIndex = index;
           });
         },
-        selectedItemColor: Colors.pinkAccent,
+        selectedItemColor: const Color(0xFF5B7566),
         unselectedItemColor: Colors.grey,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
+            icon: Icon(Icons.dashboard_rounded),
             label: 'Dashboard',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.child_care),
+            icon: Icon(Icons.child_care_rounded),
             label: 'Newborn Care',
           ),
         ],
