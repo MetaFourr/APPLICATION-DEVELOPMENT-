@@ -9,6 +9,9 @@ import 'dashboard/dashboard_screen.dart';
 // 3. Your Login page import (using login_page.dart)
 import 'screens/login_page.dart';
 
+// 4. Your Pregnancy Tracker screen import
+import 'screens/pregnancy_track.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -49,6 +52,7 @@ class _MainNavigationState extends State<MainNavigation> {
   // List of screens: Index 0 is YOUR Dashboard, Index 1 is your FRIEND'S Screen
   final List<Widget> _screens = const [
     DashboardScreen(),
+    PregnancyTrackScreen(), 
     NewbornCareScreen(),
   ];
 
@@ -73,6 +77,13 @@ class _MainNavigationState extends State<MainNavigation> {
             icon: Icon(Icons.dashboard_rounded),
             label: 'Dashboard',
           ),
+
+          // BottomNavigationBarItem for Pregnancy Tracker
+          BottomNavigationBarItem(
+            icon: Icon(Icons.pregnant_woman_rounded), 
+            label: 'Tracker',
+          ),
+          
           BottomNavigationBarItem(
             icon: Icon(Icons.child_care_rounded),
             label: 'Newborn Care',
