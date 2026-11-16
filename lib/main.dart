@@ -12,6 +12,9 @@ import 'screens/login_page.dart';
 // 4. Your Pregnancy Tracker screen import
 import 'screens/pregnancy_track.dart';
 
+// 5. Your Account & Settings screen import
+import 'screens/account_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -38,7 +41,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Navigation Shell holding both your dashboard and your friend's newborn care screen
+// Navigation Shell holding all main screens
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
 
@@ -49,11 +52,12 @@ class MainNavigation extends StatefulWidget {
 class _MainNavigationState extends State<MainNavigation> {
   int _currentIndex = 0;
 
-  // List of screens: Index 0 is YOUR Dashboard, Index 1 is your FRIEND'S Screen
+  // List of screens matching the BottomNavigationBar items
   final List<Widget> _screens = const [
     DashboardScreen(),
-    PregnancyTrackScreen(), 
+    PregnancyTrackScreen(),
     NewbornCareScreen(),
+    AccountScreen(), // Added AccountScreen at Index 3
   ];
 
   @override
@@ -64,6 +68,7 @@ class _MainNavigationState extends State<MainNavigation> {
         children: _screens,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed, // Required when having 4+ tabs
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
@@ -77,16 +82,17 @@ class _MainNavigationState extends State<MainNavigation> {
             icon: Icon(Icons.dashboard_rounded),
             label: 'Dashboard',
           ),
-
-          // BottomNavigationBarItem for Pregnancy Tracker
           BottomNavigationBarItem(
-            icon: Icon(Icons.pregnant_woman_rounded), 
+            icon: Icon(Icons.pregnant_woman_rounded),
             label: 'Tracker',
           ),
-          
           BottomNavigationBarItem(
             icon: Icon(Icons.child_care_rounded),
             label: 'Newborn Care',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline_rounded),
+            label: 'Account',
           ),
         ],
       ),
