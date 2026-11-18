@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dashboard_widgets.dart'; // Imports your separate widget components
+import '../screens/baby_development_screen.dart';
+import '../screens/profile_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -35,8 +37,8 @@ class DashboardScreen extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
-            Row(
-              children: const [
+            const Row(
+              children: [
                 Expanded(
                   child: DashboardStatCard(
                     title: 'Kick Count',
@@ -64,22 +66,42 @@ class DashboardScreen extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
+
+            // Feature 1: Infant Growth Monitor -> BabyDevelopmentScreen
             DashboardActionButton(
               title: 'Infant Growth Monitor',
               subtitle: 'Track height, weight & milestones',
               icon: Icons.child_care,
               color: Colors.purple,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BabyDevelopmentScreen(),
+                  ),
+                );
+              },
             ),
             const SizedBox(height: 10),
+
+            // Feature 2: Book Confinement Care -> ProfileScreen
             DashboardActionButton(
               title: 'Book Confinement Care',
               subtitle: 'Find verified confinement ladies',
               icon: Icons.medical_services,
               color: Colors.teal,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfileScreen(),
+                  ),
+                );
+              },
             ),
             const SizedBox(height: 10),
+
+            // Placeholder for Alisya's Motherhood Forum (Community)
             DashboardActionButton(
               title: 'Motherhood Forum',
               subtitle: 'Connect with other parents',
