@@ -598,8 +598,3 @@ class _PregnancyTrackScreenState extends State<PregnancyTrackScreen> {
     );
   }
 }
-
-class List {
-  required String mood;
-  List<String> symptoms;
-}
